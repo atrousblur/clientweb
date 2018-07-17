@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="EUC-KR" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+<title>Insert title here</title>
+<style type="text/css">
+body {
+	font: 14px 굴림체;
+	text-align: center;
+}
+
+.main {
+  margin-top:15px;
+  width:700px;
+}
+div.heading {
+	font: 20px HY견고딕;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+div.subheading {
+	font: 15px HY견고딕;
+	font-style: italic;
+	margin-bottom: 10px;
+}
+
+.img {
+	float: left;
+	width: 350px;
+	
+}
+
+div.field {
+  
+  margin-bottom:5px;
+  text-align:right;
+}
+form{
+padding-left:0px;
+	
+}
+</style>
+<script type="text/javascript">
+
+	function order() {
+		price1 = parseInt(document.orderform.bbq.value) * 10000;
+		price2 = parseInt(document.orderform.blanket.value) * 10000;
+		price3 = parseInt(document.orderform.count.value) * 20000;
+		document.orderform.subtotal.value = price1 + price2 + price3 + 100000;
+		subtotal = parseInt(document.orderform.subtotal.value);
+		document.orderform.tax.value = subtotal * 0.1;
+		tax = parseInt(document.orderform.tax.value);
+		document.orderform.total.value = subtotal + tax;
+		totalPrice = parseInt(document.orderform.total.value);
+	}
+
+	function exec(workingform) {
+
+	if (!(parseInt(document.getElementById("blanket").value) + 1 >= parseInt(document
+				.getElementById("count").value))) {
+			alert("이불 갯수를 다시 입력하세요.")
+		} else {
+			var str = "";
+			str += "객실명: " + document.getElementById("name").value + "<br>";
+			str += "바베큐: " + document.getElementById("bbq").value + "<br>";
+			str += "이불수: " + document.getElementById("blanket").value + "<br>";
+			str += "인원수: " + document.getElementById("count").value + "<br>";
+			str += "금액: " + document.getElementById("subtotal").value + "<br>";
+			str += "세금: " + document.getElementById("tax").value + "<br>";
+			str += "총금액: " + document.getElementById("total").value + "<br>";
+
+			document.getElementById("resultVal").innerHTML = str;
+		}
+
+	}
+
+	function image() {
+		var image = document.getElementById("name").value;
+		switch (image) {
+		case "루비":
+			document.getElementById("img2").src = "../img/ruby1.jpg";
+			break;
+		case "에메랄드":
+			document.getElementById("img2").src = "../img/emerald1.jpg";
+			break;
+		case "사파이어":
+			document.getElementById("img2").src = "../img/sapphire1.jpg";
+			break;
+		case "스카이1호":
+			document.getElementById("img2").src = "../img/sky01.jpg";
+			break;
+		case "별님실":
+			document.getElementById("img2").src = "../img/star1.jpg";
+			break;
+		}
+
+	}
+</script>
+</head>
+<body>
+	<div class="main">
+		<div class="heading">펜션예약사항</div>
+		<div class="subheading">비수기 세일입니다. 펜션의 모든 방을 10만원에 단, 모든 방은
+			2인용입니다.!!</div>
+		<div class="img">
+			 <img  id="img2" src="../img/pension.jpg" width="300" height="300" />
+		</div>
+		<form name="orderform" action="" method="post">
+			<div class="field">
+				객실명: <select name="name" id="name" onchange="image()">
+					<option value="루비" >루비</option>
+					<option value="에메랄드" >에메랄드</option>
+					<option value="사파이어" >사파이어</option>
+					<option value="스카이1호" >스카이1호</option>
+					<option value="별님실" >별님실</option>
+				</select>
+			</div>
+			<div class="field">
+				바베큐시설이용: <input type="text" id="bbq" name="bbq" value=""
+					onchange="order()" />
+			</div>
+			<div class="field">
+				이불추가: <input type="text" id="blanket" name="blanket" value=""
+					onchange="order()" />
+			</div>
+			<div class="field">
+				인원수: <input type="text" id="count" name="count" value=""
+					onchange="order()" />
+			</div>
+			<div class="field">
+				금액: <input type="text" id="subtotal" name="subtotal" value=""
+					readonly="readonly" />
+			</div>
+			<div class="field">
+				부가세: <input type="text" id="tax" name="tax" value=""
+					readonly="readonly" />
+			</div>
+			<div class="field">
+				총금액: <input type="text" id="total" name="total" value=""
+					readonly="readonly" />
+			</div>
+			<div class="field">
+				<input type="button" value="Place Order" onclick="exec(this.form)" />
+			</div>
+		</form>
+	</div>
+	<div id="resultVal" style="font-size: 12pt;"></div>
+
+</body>
+</html>

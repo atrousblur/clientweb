@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>template</title>
+<script type="text/javascript">
+	function cal1() {
+		var today = new Date();
+		var year = today.getFullYear() + "년 ";
+		var month = (today.getMonth() + 1) + "월 ";
+		var date = today.getDate();
+		var day = today.getDay();
+
+		var last = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+
+		if (y % 4 === 0 & y % 100 != 0 | y % 400 === 0) {
+			last[1] = 29;
+		}
+		
+		var first = new Date(year,month,1);
+		var firstdate = first.getDate();
+		var firstday = first.getDay();
+	}
+	
+	function cal2(year, month, date, day, last ){
+		document.write( "<table border = '1'>");
+		document.write( "<tr><th colspan='7'>+ year+month</th></tr> ");
+		var weekday = new Array("일","월","화","수","목","금","토");
+		document.write( "<tr>");
+		for (i=0; i<weekday.length;i++){
+			document.write( "<th>"+weekday[i]+"</th>");
+		}
+		document.write( "</tr>");
+		
+		var
+		
+
+
+	}
+		
+		
+
+
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+		document.write("<caption> " + title + "</caption> ");
+	</script>
+</body>
+</html>

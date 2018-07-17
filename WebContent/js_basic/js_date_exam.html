@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>date exam</title>
+<script type="text/javascript">
+	
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+		today = new Date();
+		hour = today.getHours();
+		day = today.getDay();
+
+		if (hour < 12) {
+			document.bgColor = "#00ff00";
+		} else {
+			document.bgColor = "#ff0000";
+		}
+
+		document.write("<img src='../img/jang" + (day + 1) + ".jpg'/>");
+		document.write("<img src=../img/abc.gif>");
+	</script>
+</body>
+</html>

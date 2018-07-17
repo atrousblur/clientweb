@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	function insertP() { 
+		//alert("insertP");
+		pNode = document.createElement("p");
+		pNode.setAttribute("style", "background: yellow");
+		textNode = document.createTextNode("new p");
+		parentNode = document.getElementById("root");
+		pNode.appendChild(textNode);
+		parentNode.appendChild(pNode);
+	}
+	
+	function deleteP() {
+		//alert("deleteP");
+		parentNode = document.getElementById("root");
+		if (parentNode.lastChild.nodeName == "#text") {
+			pareneNode.removeChild(parentNode.lastChild);
+		}
+		parentNode.removeChild(parentNode.lastChild);
+	}
+
+	function deleteDivAndP() {
+		//alert("deleteDivAndP");
+		parentNode = document.getElementById("root");
+		nodelist = parentNode.childNodes;
+		size = nodelist.length;		//length를 for문에 직접쓰면 숫자가 계속 줄어듦. 변수로 선언해서 고정.
+		for(i=0;i<size;i++){
+			//alert(size);
+			 parentNode.removeChild(parentNode.lastChild);
+		}
+		
+		
+
+	/* 		while(parentNode.hasChildNodes()){
+		 parentNode.removeChild(parentNode.lastChild);
+		 } */
+
+		/* 		while (parentNode.childNodes.length != 0) {
+			parentNode.removeChild(parentNode.firstChild); 
+		}*/
+	}
+</script>
+</head>
+<body>
+	<div id="layer"></div>
+
+	<hr>
+
+	<div id="root"><p style="background: gray;">line01</p><p style="background: skyblue">line02</p><p style="background: green;">line03</p><p style="background: red;">line04</p></div>
+
+	<hr>
+	<button onclick="insertP()">P태그추가하기</button>
+	<button onclick="deleteP()">P태그삭제하기</button>
+	<button onclick="deleteDivAndP()">div안의 모든 p태그 삭제하기</button>
+	<button onclick="innerHTML_test()">innerHTML</button>
+
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>bom_exam2</title>
+<script type="text/javascript">
+
+
+	function idcheck() {
+		id = myform.id.value;
+		//브라우저객체도 자바스크립트에서 변수로 정의하고 사용할 수 있다.
+		resultDiv = document.getElementById("result");
+		str = ""; //div에 출력할 문자열을 저장할 변수
+
+		if (id.length < 4) {
+			str = "4글자 이상을 입력하세요.";
+		} else {
+			//기존에 존재하는 아이디인지 평가 (Ajax처리 - db연동)
+			if (id === "java") {
+				str = "이미 사용중인 아이디 입니다.";
+			} else {
+				str = "사용 가능한 아이디 입니다.";
+			}
+		}
+		resultDiv.innerHTML = str;
+
+	}
+</script>
+
+</head>
+<body>
+
+	<h1>티몬 회원가입</h1>
+	<h3>필수항목</h3>
+	<form action="" name="myform">
+		아이디: <input type="text" name="id" onkeyup="idcheck(this.form)"><br/>				
+		<!--  this.form : 현재 작업중인 양식 태그가 속해있는 form객체를 넘긴다. -->
+		
+		<div id="result" style="font-size: 14pt; color:  red; font-weight: bold"></div>
+	</form>
+
+</body>
+</html>

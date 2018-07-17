@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" />
+  <script type="text/javascript" src="js/title.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+  
+	total = 0;
+
+	$(document).ready(function() {
+		$("#1000").on("click", function() {
+			total = total + parseInt($("#1000").val());
+			$("#money").val(total);
+		});
+		$("#5000").on("click", function() {
+			total = total + parseInt($("#5000").val());
+			$("#money").val(total);
+		});
+		$("#10000").on("click", function() {
+			total = total + parseInt($("#10000").val());
+			$("#money").val(total);
+		});
+		$("#return").on("click", function() {
+			if($("#money").val()==""){
+				alert("잔액이 없습니다.");
+			}else{
+			alert(total+"원이 반환되었습니다.");
+			$("#money").val("");
+			total = 0;
+			}
+		});
+		
+	});
+  
+	
+	function calc(menu){
+		
+		order = $(menu).find("span").text();
+
+		if(total < parseInt(order)){
+			alert("잔액이 부족합니다.");
+		} else{
+			total = total - parseInt(order);
+			$("#money").val(total);
+			alert(menu.id+"! 맛있게 드세요.");
+		}
+		
+	}
+  </script>
+<style type="text/css">
+
+
+@media screen and (max-width: 1260px) {
+	.back {
+		width: 50%;
+	}
+}
+
+@media screen and (max-width: 840px) {
+	.back {
+		width: 100%;
+	}
+}
+
+.button_base {
+	margin: 0;
+	border: 0;
+	font-size: 18px;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	margin-top: -25px;
+	margin-left: -100px;
+	width: 150px;
+	height: 50px;
+	text-align: center;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-user-select: none;
+	cursor: default;
+	border-color: #FFA9EF;
+}
+
+.button_base:hover {
+	cursor: pointer;
+}
+
+.b03_skewed_slide_in {
+	overflow: hidden;
+	border: #FFA9EF solid 1px;
+}
+
+.b03_skewed_slide_in div {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	height: 50px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	padding: 10px;
+}
+
+.b03_skewed_slide_in div:nth-child(1) {
+	color: #000000;
+	background-color: #ffffff;
+}
+
+.b03_skewed_slide_in div:nth-child(2) {
+	background-color: #FFA9EF;
+	width: 230px;
+	transition: all 0.2s ease;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	transform: translate(-250px, 0px) skewX(-30deg);
+	-webkit-transform: translate(-250px, 0px) skewX(-30deg);
+	-moz-transform: translate(-250px, 0px) skewX(-30deg);
+}
+
+.b03_skewed_slide_in div:nth-child(3) {
+	color: #ffffff;
+	left: -200px;
+	transition: left 0.2s ease;
+	-webkit-transition: left 0.2s ease;
+	-moz-transition: left 0.2s ease;
+}
+
+.b03_skewed_slide_in:hover div:nth-child(2) {
+	transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	transform: translate(-15px, 0px) skewX(-30deg);
+	-webkit-transform: translate(-15px, 0px) skewX(-30deg);
+	-moz-transform: translate(-15px, 0px) skewX(-30deg);
+}
+
+.b03_skewed_slide_in:hover div:nth-child(3) {
+	left: 0px;
+	transition: left 0.30000000000000004s ease;
+	-webkit-transition: left 0.30000000000000004s ease;
+	-moz-transition: left 0.30000000000000004s ease;
+}
+</style>
+
+</head>
+<body>
+
+
+
+	<div class="container">
+
+
+		<h1 class="my-4 text-center text-lg-left"> Bread
+			 <span class="txt-rotate" data-period="2000"
+				data-rotate='[ "Vending Machine." ]'></span>
+		</h1>
+
+		<div class="row">
+			<div class="col-sm-9">
+
+				<div class="row">
+					<div class="col-sm-4 center-block">
+						<img src="img/applepie.png" width="50%">
+						<div class="button_base b03_skewed_slide_in" id="애플파이"
+							onclick="calc(this)">
+							<div>애플파이</div>
+							<div></div>
+							<div>3000원</div>
+							<span>3000</span>
+						</div>
+					</div>
+
+					<div class="col-sm-4 center-block">
+						<img src="img/bagel.png" width="50%">
+						<div class="button_base b03_skewed_slide_in" id="베이글"
+							onclick="calc(this)">
+							<div>베이글</div>
+							<div></div>
+							<div>2000원</div>
+							<span>2000</span>
+						</div>
+					</div>
+
+					<div class="col-sm-4 center-block">
+						<img src="img/baguette.png" width="50%">
+						<div class="button_base b03_skewed_slide_in" id="바게뜨"
+							onclick="calc(this)">
+							<div>바게뜨</div>
+							<div></div>
+							<div>2700원</div>
+							<span>2700</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-4 center-block">
+						<img src="img/bread.png" width="50%">
+						<div class="button_base b03_skewed_slide_in" id="식빵"
+							onclick="calc(this)">
+							<div>식빵</div>
+							<div></div>
+							<div>3500원</div>
+							<span>3500</span>
+						</div>
+					</div>
+
+					<div class="col-sm-4 center-block">
+						<img src="img/cake-slice.png" width="50%">
+						<div class="button_base b03_skewed_slide_in" id="케이크"
+							onclick="calc(this)">
+							<div>케이크</div>
+							<div></div>
+							<div>4300원</div>
+							<span>4300</span>
+						</div>
+					</div>
+
+					<div class="col-sm-4 center-block">
+						<img src="img/donut.png" width="50%">
+						<div class="button_base b03_skewed_slide_in" id="도넛"
+							onclick="calc(this)">
+							<div>도넛</div>
+							<div></div>
+							<div>1800원</div>
+							<span>1800</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-4 center-block">
+						<img src="img/macarons.png" width="50%">
+						<div class="button_base b03_skewed_slide_in" id="마카롱"
+							onclick="calc(this)">
+							<div>마카롱</div>
+							<div></div>
+							<div>2200원</div>
+							<span>2200</span>
+						</div>
+					</div>
+
+					<div class="col-sm-4 center-block">
+						<img src="img/muffin.png" width="50%">
+						<div class="button_base b03_skewed_slide_in" id="머핀"
+							onclick="calc(this)">
+							<div>머핀</div>
+							<div></div>
+							<div>2500원</div>
+							<span>2500</span>
+						</div>
+					</div>
+
+					<div class="col-sm-4 center-block">
+						<img src="img/pretzel.png" width="50%">
+						<div class="button_base b03_skewed_slide_in" id="프레즐"
+							onclick="calc(this)">
+							<div>프레즐</div>
+							<div></div>
+							<div>1600원</div>
+							<span>1600</span>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="row">
+
+					<div class="col-sm-4 center-block">
+						<img src="img/sandwich.png" width="50%">
+						<div class="button_base b03_skewed_slide_in" id="샌드위치"
+							onclick="calc(this)">
+							<div>샌드위치</div>
+							<div></div>
+							<div>5000원</div>
+							<span>5000</span>
+						</div>
+					</div>
+					<div class="col-sm-4 center-block">
+						<img src="img/cupcake.png" width="50%">
+						<div class="button_base b03_skewed_slide_in" id="컵케이크"
+							onclick="calc(this)">
+							<div>컵케이크</div>
+							<div></div>
+							<div>3200원</div>
+							<span>3200</span>
+						</div>
+					</div>
+
+					<div class="col-sm-4 center-block">
+						<img src="img/biscuits.png" width="50%">
+						<div class="button_base b03_skewed_slide_in" id="비스킷"
+							onclick="calc(this)">
+							<div>비스킷</div>
+							<div></div>
+							<div>2100원</div>
+							<span>2100</span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+			<div class="col-sm-3">
+				<div class="row">
+					<div class="btn-group center-block" role="group">
+						<button type="button" class="btn btn-success" id="1000"
+							value="1000">1000원</button>
+						<button type="button" class="btn btn-success" id="5000"
+							value="5000">5000원</button>
+						<button type="button" class="btn btn-success" id="10000"
+							value="10000">10000원</button>
+					</div>
+					<br /> <br />
+					<p>
+						잔액: <input type="text" id="money" /> 원
+					</p>
+					<br />
+					<button type="button" class="btn btn-default" id="return">잔액
+						반환</button>
+				</div>
+				
+				<div class="row">
+				<br/>
+					<img src="img/abc.gif" width="70%">
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+</body>
+</html>

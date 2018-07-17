@@ -1,0 +1,55 @@
+@charset "EUC-KR";
+
+body {
+	font-size: 11px;
+	text-align: justify;
+}
+
+h1, h2 {
+	color: #7ab5b8;
+}
+
+#gardenh2 {
+	color: black;
+}
+
+h3 {
+	color: red;
+}
+
+#section1 {
+	width: 65%;
+	float: left;
+	margin-left: 10px;
+	margin-right: 20px;
+	float: left;
+}
+
+#footer {
+	font-size: 9pt;
+	clear: both;
+	text-align: center;
+}
+
+#garden {
+	background-image: url("../../img/background.gif");
+	background-repeat: no-repeat;
+	background-position: left top;
+	border: solid white 1px;
+	background-color: #a7cece;
+	padding: 20px;
+	padding-left: 90px;
+	margin: 20px;
+	height: 70px;
+	font-style: italic;
+	overflow: auto;
+}
+
+#garden02 {
+	text-align: center;
+	border: 2px solid #7ab5b8;
+	width: 25%;
+	float: left;
+	padding: 20px;
+	margin-right: 10px;
+}

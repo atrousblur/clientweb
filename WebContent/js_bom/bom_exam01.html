@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>bom_exam1</title>
+<script type="text/javascript">
+	function discount() {
+		countVal = myform.count.value;
+		result = countVal * 12900 * 0.9;
+		document.getElementById("resultVal").innerHTML = result;
+	}
+</script>
+</head>
+<body>
+
+	<form action="" name="myform">
+		수량: <input type="text" name="count" onkeyup="discount()">
+		<a id="resultVal" style="font-size: 12pt;"></a>
+		<br />
+	</form>
+
+</body>
+</html>
